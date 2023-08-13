@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import { AppContext } from './Context/contextApi'
+import Header  from './Component/Header'
+import Feed from './Component/Feed'
+import SearchResulte from './Component/SearchResulte'
+import VideoDetails from './Component/VideoDetails'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <AppContext>
+    <BrowserRouter>
+      <Header/>
+      <Routes>
+        <Route path='/' element={<Feed/>}/>
+        <Route path='/searchResulte/:searchQuery' element={<SearchResulte/>}/>
+        <Route path='/video/:id' element={<VideoDetails/>}/>
+      </Routes>
+    </BrowserRouter>
+  </AppContext>
+  )
 }
 
-export default App;
+export default App
