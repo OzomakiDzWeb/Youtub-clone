@@ -15,7 +15,7 @@ export const AppContext=(props)=>{
  const fetchSelctCategory=(q)=>{
 setLoding(true)
 fetchDataApi(`search/?q=${q}`).then(({contents})=>{
-     console.log(contents)
+     
      setLoding(false)
 })
  }
