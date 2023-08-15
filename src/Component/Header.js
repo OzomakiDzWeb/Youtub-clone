@@ -9,6 +9,7 @@ import { IoIosSearch } from "react-icons/io";
 import { RiVideoAddLine } from "react-icons/ri";
 import { FiBell } from "react-icons/fi";
 import { CgClose } from "react-icons/cg";
+import {AiOutlineUserDelete} from "react-icons/ai"
 
 import { context } from "../Context/contextApi";
 import Loader from "../shared/loader";
@@ -57,11 +58,23 @@ const Header = () => {
              type="text" 
              className="bg-transparent outline-none text-white pr-5 pl-5 md:group-focus-within:pl-0 md:w-64 lg-w-[500px]"
              onChange={e=>{setSearchQuery(e.target.value)}}
+             onKeyUp={searchQueryHendler}
              value={searchQuery}/>
          </div>
-         <button className="w-[40px] md:w-[50px] md:h-10 flex items-center border border-[#303030] rounded-r-3xl bg-white/[0.1] ">
+            <button className="w-[40px] h-8  md:w-[50px] md:h-10 flex justify-center items-center border border-[#303030] rounded-r-3xl bg-white/[0.1] ">
                <IoIosSearch className="text-white text-xl"/>
              </button>
+       </div>
+       <div className="items-center hidden sm:flex">
+        <div className="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer hover:bg-[#303030]/[0.6]">
+          <RiVideoAddLine className="text-white"/>
+        </div>
+        <div className="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer hover:bg-[#303030]/[0.6]" >
+          <FiBell className="text-white"/>
+        </div>
+        <div className="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer hover:bg-[#303030]/[0.6]">
+          <AiOutlineUserDelete className="text-white"/>
+        </div>
        </div>
      </div>
   )
